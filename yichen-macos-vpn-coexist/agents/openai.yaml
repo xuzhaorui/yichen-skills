@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mac VPN Coexistence"
+  short_description: "Keep Shadowrocket and Tailscale connected on macOS"
+  default_prompt: "Use $yichen-macos-vpn-coexist to diagnose or configure Shadowrocket and Tailscale on macOS."
