@@ -39,6 +39,7 @@ To request commercial authorization, contact me on WeChat at `yichen365ai` and i
 18. Turn one public X Post or Thread URL into verified 3:4 image slices and a finished video that embeds complete native video visuals and preserves their original audio when present (`yichen-x-slicer`)
 19. Experimentally analyze a user-supplied, detached plaintext Windows Weixin snapshot locally and read-only, without process access, keys, or decryption (`yichen-wechat-windows-reader`)
 20. Orchestrate ChatGPT Pro research, architecture, and read-only project review while Codex alone edits and tests (`codex-chatgpt`)
+21. Keep macOS Shadowrocket and Tailscale available together (`yichen-macos-vpn-coexist`)
 
 ## Included Skills
 
@@ -78,6 +79,15 @@ Run two WeChat accounts simultaneously on macOS — no third-party tools:
 - Requirements: macOS 12+, WeChat at `/Applications/WeChat.app`, Python 3.10+, Pillow
 - Limitations: breaks after WeChat updates (re-run `repair`), push notifications may be unreliable
 - Based on the well-known copy + bundle-id + ad-hoc signing method documented by [@koffuxu](https://x.com/koffuxu/status/2043110831584690427)
+
+### `yichen-macos-vpn-coexist`
+Keep macOS Shadowrocket and Tailscale available together:
+- Distinguishes Packet Tunnel ownership conflicts from profile route exclusions
+- Checks the exact `100.64.0.0/10` / `tun-excluded-routes` failure mode before recommending a profile edit
+- Offers the advanced Homebrew `tailscaled` backend with its support, route, and DNS tradeoffs
+- Plans a visible handoff before changing active VPN state and verifies both sides independently
+
+See [yichen-macos-vpn-coexist/README.md](./yichen-macos-vpn-coexist/README.md).
 
 ### `yichen-wechat-local-vault`
 
@@ -288,6 +298,11 @@ yichen-skills/
 │  │  └─ wechat_dual_open.py
 │  └─ references/
 │     └─ reliability-and-risks.md
+├─ yichen-macos-vpn-coexist/
+│  ├─ SKILL.md
+│  ├─ README.md
+│  ├─ README.zh.md
+│  └─ agents/
 ├─ yichen-volc-asr/
 │  ├─ SKILL.md
 │  └─ scripts/
@@ -417,6 +432,7 @@ Keep directory names unchanged:
 - `yichen-x-article-draft-uploader`
 - `yichen-wechat-local-vault`
 - `yichen-mac-wechat-dual-open`
+- `yichen-macos-vpn-coexist`
 - `yichen-volc-asr`
 - `yichen-chatgpt-web-research`
 - `codex-chatgpt`
