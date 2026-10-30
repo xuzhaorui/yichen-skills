@@ -39,6 +39,7 @@
 18. 把一条公开 X Post 或 Thread 链接转成经过验收的 3:4 图片切片与成片，完整嵌入原生视频并在有源音轨时保留原声（`yichen-x-slicer`）
 19. 在 Windows 本机实验性、只读分析用户明确提供的脱机微信明文快照，不访问进程、不处理密钥、不解密（`yichen-wechat-windows-reader`）
 20. 让 ChatGPT Pro 负责调研、架构和只读审查，Codex 独占本地代码修改和测试（`codex-chatgpt`）
+21. 让 macOS 上的 Shadowrocket 与 Tailscale 同时保持可用（`yichen-macos-vpn-coexist`）
 
 ## 包含的技能
 
@@ -78,6 +79,15 @@ Mac 微信双开——无需第三方工具，一条命令搞定：
 - 依赖：macOS 12+、微信（`/Applications/WeChat.app`）、Python 3.10+、Pillow
 - 限制：微信更新后需要重新运行（用 `repair`）；推送通知可能不稳定
 - 方法来源：[@koffuxu](https://x.com/koffuxu/status/2043110831584690427) 的公开教程
+
+### `yichen-macos-vpn-coexist`
+让 macOS 上的 Shadowrocket 和 Tailscale 同时保持可用：
+- 区分 Packet Tunnel 抢占与配置文件路由排除冲突
+- 修改配置前先核实 `100.64.0.0/10` 是否确实出现在 `tun-excluded-routes`
+- 必要时评估 Homebrew `tailscaled` 高级方案，并说明支持、路由和 DNS 取舍
+- 改动 VPN 前安排明确交接，并分别验证两个连接
+
+详见 [yichen-macos-vpn-coexist/README.zh.md](./yichen-macos-vpn-coexist/README.zh.md)。
 
 ### `yichen-wechat-local-vault`
 
@@ -288,6 +298,11 @@ yichen-skills/
 │  │  └─ wechat_dual_open.py
 │  └─ references/
 │     └─ reliability-and-risks.md
+├─ yichen-macos-vpn-coexist/
+│  ├─ SKILL.md
+│  ├─ README.md
+│  ├─ README.zh.md
+│  └─ agents/
 ├─ yichen-volc-asr/
 │  ├─ SKILL.md
 │  └─ scripts/
@@ -417,6 +432,7 @@ yichen-skills/
 - `yichen-x-article-draft-uploader`
 - `yichen-wechat-local-vault`
 - `yichen-mac-wechat-dual-open`
+- `yichen-macos-vpn-coexist`
 - `yichen-volc-asr`
 - `yichen-chatgpt-web-research`
 - `codex-chatgpt`
